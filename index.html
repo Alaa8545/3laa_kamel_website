@@ -2,36 +2,59 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>موقع علاء</title>
+  <title>موقع علاء كامل</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-      background: url('7J84m0OBa96nXKo9njkNA3Xw-image-maker.jpg') no-repeat center center fixed;
+      background-image: url('7J84m0OBa96nXKo9njkNA3Xw-image-maker.jpg'); /* هنا اسم الصورة بتاعتك */
       background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
     }
-    .box {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      margin: 50px auto;
-      width: 80%;
+    h1 {
+      background: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 15px 25px;
       border-radius: 15px;
     }
-    a {
-      color: #00acee;
-      font-size: 20px;
+    .social-links {
+      margin-top: 30px;
+    }
+    .social-links a {
       text-decoration: none;
+      margin: 0 10px;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      color: white;
+      font-size: 28px;
+      transition: 0.3s;
+    }
+    .social-links a.instagram {
+      background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
+    }
+    .social-links a.facebook {
+      background: #1877f2;
+    }
+    .social-links a:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>أنا وعبده اخوات</h1>
-    <p>واللي اتقال بيننا اشاعات</p>
-    <p>تابعني على إنستجرام:</p>
-    <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">
-      صفحتي على إنستجرام
+  <h1>انا وعبده اخوات واللي اتقال بيننا اشاعات</h1>
+  <div class="social-links">
+    <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank" class="instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/alaakamil7737" target="_blank" class="facebook">
+      <i class="fab fa-facebook-f"></i>
     </a>
   </div>
 </body>
