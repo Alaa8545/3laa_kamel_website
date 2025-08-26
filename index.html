@@ -1,61 +1,60 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>موقع علاء كامل</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaa Kamel</title>
   <style>
     body {
-      background-image: url('7J84m0OBa96nXKo9njkNA3Xw-image-maker.jpg'); /* هنا اسم الصورة بتاعتك */
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
-      color: white;
+    }
+    .container {
       text-align: center;
-      padding-top: 100px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 20px;
+      color: white;
     }
     h1 {
-      background: rgba(0, 0, 0, 0.6);
-      display: inline-block;
-      padding: 15px 25px;
-      border-radius: 15px;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
     }
-    .social-links {
-      margin-top: 30px;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-    .social-links a {
-      text-decoration: none;
-      margin: 0 10px;
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      border-radius: 50%;
-      color: white;
-      font-size: 28px;
-      transition: 0.3s;
+    .social-icons a img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s;
     }
-    .social-links a.instagram {
-      background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
-    }
-    .social-links a.facebook {
-      background: #1877f2;
-    }
-    .social-links a:hover {
-      transform: scale(1.1);
-      opacity: 0.9;
+    .social-icons a img:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
-  <h1>انا وعبده اخوات واللي اتقال بيننا اشاعات</h1>
-  <div class="social-links">
-    <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank" class="instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/alaakamil7737" target="_blank" class="facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
+  <div class="container">
+    <h1>Welcome to Alaa Kamel Page</h1>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/alaakamil7737" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+      </a>
+    </div>
   </div>
 </body>
 </html>
