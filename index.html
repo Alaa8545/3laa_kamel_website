@@ -9,7 +9,7 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -20,8 +20,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: url('https://i.ibb.co/8z6YVZ1/background.jpg') no-repeat center center fixed;
+      background-image: url('https://i.ibb.co/8z6YVZ1/background.jpg');
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
     .container {
@@ -59,7 +62,6 @@
       h1 {
         font-size: 2rem;
       }
-
       .social-icons a img {
         width: 40px;
         height: 40px;
