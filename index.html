@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Football Scores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #d90429;
+      color: #fff;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .match-card {
+      background: #fff;
+      margin: 1rem auto;
+      padding: 1rem;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .teams {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+    footer {
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>⚽ Live Football Scores</header>  <div id="matches"></div>  <footer>Powered by Alaa's Website</footer>  <script>
+    async function getScores() {
+      try {
+        // Example free API (you can switch to premium later)
+        let response = await fetch("https://www.scorebat.com/video-api/v3/" );
+        let data = await response.json();
+
+        let container = document.getElementById("matches");
+        container.innerHTML = "";
+
+        data.response.slice(0,5).forEach(match => {
+          let card = document.createElement("div");
+          card.className = "match-card";
+
+          card.innerHTML = `
+            <div class="teams">${match.title}</div>
+            <div class="score">${match.competition}</div>
+          `;
+
+          container.appendChild(card);
+        });
+      } catch (err) {
+        document.getElementById("matches").innerHTML = "⚠️ Error loading scores.";
+      }
+    }
+
+    getScores();
+    setInterval(getScores, 60000); // refresh every 1 min
+  </script></body>
+</html>
