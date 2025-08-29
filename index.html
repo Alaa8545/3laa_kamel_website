@@ -45,18 +45,20 @@
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 25px; /* مسافة متساوية بين الأيقونات */
+      gap: 30px;
       flex-wrap: wrap;
     }
 
     .social-icons a img {
-      width: 50px;
-      height: 50px;
-      transition: transform 0.3s;
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
     }
 
     .social-icons a img:hover {
       transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(255,255,255,0.7);
     }
 
     @media (max-width: 600px) {
@@ -64,11 +66,11 @@
         font-size: 2rem;
       }
       .social-icons a img {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
       }
       .social-icons {
-        gap: 15px; /* تصغير المسافة على الموبايل */
+        gap: 20px;
       }
     }
   </style>
