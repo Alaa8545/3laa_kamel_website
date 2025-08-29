@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة علاء</title>
+  <title>Alaa's Page</title>
   <meta name="google-site-verification" content="DvDSZwSFKkG0_r_Ez3ULjv5ckk242D2xMaHF9DNf8yQ" />
   <style>
     * { box-sizing: border-box; }
@@ -39,38 +39,55 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-    .social-icons a img {
-      width: 60px;
-      height: 60px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-radius: 10px;
+    .social-icons a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: #1e90ff; /* لون جميل */
+      padding: 10px 15px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     }
-    .social-icons a img:hover {
-      transform: scale(1.2);
+    .social-icons a:hover {
+      transform: scale(1.1);
       box-shadow: 0 0 15px rgba(255,255,255,0.7);
+      background-color: #00bfff; /* تغيير لون عند المرور */
+    }
+    .social-icons a img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 5px;
     }
     @media (max-width: 600px) {
       h1 { font-size: 2rem; margin-top: -10px; }
-      .social-icons a img { width: 50px; height: 50px; }
+      .social-icons a img { width: 40px; height: 40px; }
       .social-icons { gap: 20px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>مرحبًا بك في صفحة علاء</h1>
+    <h1>Welcome to Alaa's Page</h1>
     <div class="social-icons">
       <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        Instagram
       </a>
       <a href="https://www.facebook.com/alaakamil7737" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        Facebook
       </a>
       <a href="mailto:kamelalaa937@gmail.com">
         <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+        Gmail
       </a>
       <a href="demo.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png" alt="Demo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png" alt="Quran">
+        اذهب إلى القرآن الكريم
       </a>
     </div>
   </div>
