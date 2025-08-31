@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة علاء</title>
+  <title>صفحة علاء - اختبار اللغة</title>
   <style>
     body {
       margin: 0;
@@ -17,61 +16,80 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       min-height: 100vh;
+      padding: 20px;
     }
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: gold;
-      margin-bottom: 20px;
+      margin: 20px 0;
     }
-    p {
-      color: black; /* النص أصبح باللون الأسود */
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
+    p { color: black; font-size: 1.2rem; }
     .video-container {
-      margin-top: 20px;
+      margin: 20px 0;
       width: 90%;
       max-width: 700px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-    }
-    .back-button {
-      margin-top: 30px;
+    iframe { width: 100%; height: 400px; border: none; }
+    .btn {
+      margin-top: 20px;
       padding: 10px 20px;
       background-color: gold;
       color: black;
       text-decoration: none;
       font-weight: bold;
       border-radius: 10px;
+      cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .back-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255,215,0,0.7);
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      iframe { height: 250px; }
-    }
+    .btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,215,0,0.7); }
+    .quiz { display: none; text-align: left; background: rgba(255,255,255,0.9); color: black; padding: 20px; border-radius: 15px; max-width: 800px; }
+    .question { margin-bottom: 15px; }
+    .result { margin-top: 20px; font-size: 1.3rem; font-weight: bold; color: darkgreen; }
   </style>
 </head>
 <body>
   <h1>مرحبًا بك في صفحة علاء</h1>
   <p>استمع إلى تلاوة سورة الفتح بصوت الشيخ محمود خليل الحصري:</p>
-
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/YaFET8pue_0" allowfullscreen></iframe>
-  </div>
+  </div><button class="btn" onclick="document.querySelector('.quiz').style.display='block'; this.style.display='none';">ابدأ اختبار اللغة</button>
 
-  <a class="back-button" href="index.html">العودة للصفحة الرئيسية</a>
-</body>
-    </html>
+  <form class="quiz" id="quizForm">
+    <h2>اختبار اللغة الإنجليزية (30 سؤال)</h2>
+    <div id="questions"></div>
+    <button type="button" class="btn" onclick="submitQuiz()">إرسال</button>
+    <div class="result" id="result"></div>
+  </form>  <script>
+    const quizData = [
+      {q:"What is the plural of 'child'?", options:["childs","children","childes","child"], correct:1},
+      {q:"She ___ to school every day.", options:["go","goes","going","gone"], correct:1},
+      {q:"Choose the synonym of 'happy'", options:["sad","angry","joyful","tired"], correct:2},
+      {q:"I ___ TV when she called.", options:["watch","watched","was watching","am watching"], correct:2},
+      {q:"Which one is a fruit?", options:["Carrot","Apple","Potato","Onion"], correct:1},
+      {q:"The opposite of 'big' is ___", options:["huge","giant","small","tall"], correct:2},
+      {q:"We ___ in Cairo since 2000.", options:["live","lived","are living","have lived"], correct:3},
+      {q:"What is the past tense of 'eat'?", options:["eated","ate","eaten","eating"], correct:1},
+      {q:"Choose the correct article: ___ apple", options:["a","an","the","no article"], correct:1},
+      {q:"They ___ football yesterday.", options:["play","played","plays","playing"], correct:1},
+      {q:"Which is a color?", options:["Run","Blue","Walk","Read"], correct:1},
+      {q:"How many days are there in a week?", options:["5","6","7","8"], correct:2},
+      {q:"Choose the correct preposition: He is ___ the park.", options:["in","on","at","under"], correct:0},
+      {q:"She has ___ books.", options:["much","many","a","an"], correct:1},
+      {q:"Opposite of 'hot' is ___", options:["warm","cold","heat","cool"], correct:1},
+      {q:"I usually ___ coffee in the morning.", options:["drinks","drink","drank","drinking"], correct:1},
+      {q:"The capital of England is ___", options:["Paris","London","Rome","Berlin"], correct:1},
+      {q:"He ___ his homework now.", options:["does","is doing","do","did"], correct:1},
+      {q:"Which is a body part?", options:["Chair","Leg","Table","Book"], correct:1},
+      {q:"The opposite of 'up' is ___", options:["down","over","under","above"], correct:0},
+      {q:"She ___ to the party last night.", options:["go","went","gone","going"], correct:1},
+      {q:"Choose the correct pronoun: ___ am a student.", options:["He","She","I","They"], correct:2},
+      {q:"He ___ like pizza.", options:["don't","doesn't","isn't","aren't"], correct:1},
+      {q:"Which is an animal?", options:["Dog","Car","House","Book"], correct:0},
+      {q:"The opposite of 'fast' is ___", options:["quick","slow","speed","run"], correct:1},
+      {q:"I ___ football every weekend.", options:["play","plays","played","
