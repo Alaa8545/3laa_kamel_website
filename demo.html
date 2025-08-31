@@ -92,4 +92,29 @@
       {q:"He ___ like pizza.", options:["don't","doesn't","isn't","aren't"], correct:1},
       {q:"Which is an animal?", options:["Dog","Car","House","Book"], correct:0},
       {q:"The opposite of 'fast' is ___", options:["quick","slow","speed","run"], correct:1},
-      {q:"I ___ football every weekend.", options:["play","plays","played","
+      {q:"I ___ football every weekend.", options:["play","plays","played","playing"], correct:0},
+      {q:"The sun ___ in the east.", options:["rise","rises","rose","rising"], correct:1},
+      {q:"Which one is a verb?", options:["run","blue","happy","book"], correct:0},
+      {q:"She ___ English very well.", options:["speak","speaks","speaked","speaking"], correct:1},
+      {q:"Choose the correct: There ___ two cats.", options:["is","are","am","be"], correct:1}
+    ];
+
+    const questionsContainer = document.getElementById('questions');
+    quizData.forEach((qData, index) => {
+      const div = document.createElement('div');
+      div.className = 'question';
+      div.innerHTML = `<p>${index+1}. ${qData.q}</p>` +
+        qData.options.map((opt,i)=>`<label><input type='radio' name='q${index}' value='${i}'> ${opt}</label><br>`).join('');
+      questionsContainer.appendChild(div);
+    });
+
+    function submitQuiz(){
+      let score = 0;
+      quizData.forEach((qData,index)=>{
+        const answer = document.querySelector(`input[name='q${index}']:checked`);
+        if(answer && parseInt(answer.value) === qData.correct){ score++; }
+      });
+      document.getElementById('result').innerText = `نتيجتك: ${score} من ${quizData.length}`;
+    }
+  </script></body>
+</html>
