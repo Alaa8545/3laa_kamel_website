@@ -1,122 +1,32 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة علاء - اختبار اللغة</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    p { color: black; font-size: 1.2rem; }
-    .video-container {
-      margin: 20px 0;
-      width: 90%;
-      max-width: 700px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-    }
-    iframe { width: 100%; height: 400px; border: none; }
-    .btn {
-      margin: 20px 0;
-      padding: 10px 20px;
-      background-color: gold;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,215,0,0.7); }
-    .quiz { display: none; text-align: left; background: rgba(255,255,255,0.9); color: black; padding: 20px; border-radius: 15px; max-width: 800px; }
-    .question { margin-bottom: 15px; }
-    .result { margin-top: 20px; font-size: 1.3rem; font-weight: bold; color: darkgreen; }
-  </style>
-</head>
-<body>
+<script>
+  const quizData = [
+    {q:"Choose the correct sentence:", options:["She go to school every day.","She goes to school every day.","She going to school every day.","She gone to school every day."], correct:1},
+    {q:"The word 'benevolent' most nearly means:", options:["kind","evil","angry","sad"], correct:0},
+    {q:"Which sentence is in past tense?", options:["I eat breakfast now.","I ate breakfast yesterday.","I am eating breakfast.","I will eat breakfast."], correct:1},
+    {q:"Choose the correct preposition: He is interested ___ learning English.", options:["in","on","at","for"], correct:0},
+    {q:"Complete the sentence: If it rains tomorrow, we ___ at home.", options:["will stay","stay","stayed","staying"], correct:0},
+    {q:"Choose the synonym of 'difficult':", options:["easy","hard","light","soft"], correct:1},
+    {q:"Which is a formal way to greet someone in writing?", options:["Hey!","Dear Sir/Madam","Yo!","Hi there"], correct:1},
+    {q:"Read the text: 'John has three sisters. Two of them are doctors.' Question: How many sisters does John have?", options:["1","2","3","4"], correct:2},
+    {q:"The opposite of 'increase' is:", options:["grow","expand","decrease","rise"], correct:2},
+    {q:"Choose the correct sentence:", options:["He don't like coffee.","He doesn't like coffee.","He not likes coffee.","He no like coffee."], correct:1}
+  ];
 
-  <!-- زرار بدء الاختبار فوق التلاوة -->
-  <button class="btn" onclick="document.querySelector('.quiz').style.display='block'; this.style.display='none';">ابدأ اختبار اللغة</button>
+  const questionsContainer = document.getElementById('questions');
+  quizData.forEach((qData, index) => {
+    const div = document.createElement('div');
+    div.className = 'question';
+    div.innerHTML = `<p>${index+1}. ${qData.q}</p>` +
+      qData.options.map((opt,i)=>`<label><input type='radio' name='q${index}' value='${i}'> ${opt}</label><br>`).join('');
+    questionsContainer.appendChild(div);
+  });
 
-  <p>استمع إلى تلاوة سورة الفتح بصوت الشيخ محمود خليل الحصري:</p>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/YaFET8pue_0" allowfullscreen></iframe>
-  </div>
-
-  <form class="quiz" id="quizForm">
-    <h2>اختبار اللغة الإنجليزية (30 سؤال)</h2>
-    <div id="questions"></div>
-    <button type="button" class="btn" onclick="submitQuiz()">إرسال</button>
-    <div class="result" id="result"></div>
-  </form>  
-
-  <script>
-    const quizData = [
-      {q:"What is the plural of 'child'?", options:["childs","children","childes","child"], correct:1},
-      {q:"She ___ to school every day.", options:["go","goes","going","gone"], correct:1},
-      {q:"Choose the synonym of 'happy'", options:["sad","angry","joyful","tired"], correct:2},
-      {q:"I ___ TV when she called.", options:["watch","watched","was watching","am watching"], correct:2},
-      {q:"Which one is a fruit?", options:["Carrot","Apple","Potato","Onion"], correct:1},
-      {q:"The opposite of 'big' is ___", options:["huge","giant","small","tall"], correct:2},
-      {q:"We ___ in Cairo since 2000.", options:["live","lived","are living","have lived"], correct:3},
-      {q:"What is the past tense of 'eat'?", options:["eated","ate","eaten","eating"], correct:1},
-      {q:"Choose the correct article: ___ apple", options:["a","an","the","no article"], correct:1},
-      {q:"They ___ football yesterday.", options:["play","played","plays","playing"], correct:1},
-      {q:"Which is a color?", options:["Run","Blue","Walk","Read"], correct:1},
-      {q:"How many days are there in a week?", options:["5","6","7","8"], correct:2},
-      {q:"Choose the correct preposition: He is ___ the park.", options:["in","on","at","under"], correct:0},
-      {q:"She has ___ books.", options:["much","many","a","an"], correct:1},
-      {q:"Opposite of 'hot' is ___", options:["warm","cold","heat","cool"], correct:1},
-      {q:"I usually ___ coffee in the morning.", options:["drinks","drink","drank","drinking"], correct:1},
-      {q:"The capital of England is ___", options:["Paris","London","Rome","Berlin"], correct:1},
-      {q:"He ___ his homework now.", options:["does","is doing","do","did"], correct:1},
-      {q:"Which is a body part?", options:["Chair","Leg","Table","Book"], correct:1},
-      {q:"The opposite of 'up' is ___", options:["down","over","under","above"], correct:0},
-      {q:"She ___ to the party last night.", options:["go","went","gone","going"], correct:1},
-      {q:"Choose the correct pronoun: ___ am a student.", options:["He","She","I","They"], correct:2},
-      {q:"He ___ like pizza.", options:["don't","doesn't","isn't","aren't"], correct:1},
-      {q:"Which is an animal?", options:["Dog","Car","House","Book"], correct:0},
-      {q:"The opposite of 'fast' is ___", options:["quick","slow","speed","run"], correct:1},
-      {q:"I ___ football every weekend.", options:["play","plays","played","playing"], correct:0},
-      {q:"The sun ___ in the east.", options:["rise","rises","rose","rising"], correct:1},
-      {q:"Which one is a verb?", options:["run","blue","happy","book"], correct:0},
-      {q:"She ___ English very well.", options:["speak","speaks","speaked","speaking"], correct:1},
-      {q:"Choose the correct: There ___ two cats.", options:["is","are","am","be"], correct:1}
-    ];
-
-    const questionsContainer = document.getElementById('questions');
-    quizData.forEach((qData, index) => {
-      const div = document.createElement('div');
-      div.className = 'question';
-      div.innerHTML = `<p>${index+1}. ${qData.q}</p>` +
-        qData.options.map((opt,i)=>`<label><input type='radio' name='q${index}' value='${i}'> ${opt}</label><br>`).join('');
-      questionsContainer.appendChild(div);
+  function submitQuiz(){
+    let score = 0;
+    quizData.forEach((qData,index)=>{
+      const answer = document.querySelector(`input[name='q${index}']:checked`);
+      if(answer && parseInt(answer.value) === qData.correct){ score++; }
     });
-
-    function submitQuiz(){
-      let score = 0;
-      quizData.forEach((qData,index)=>{
-        const answer = document.querySelector(`input[name='q${index}']:checked`);
-        if(answer && parseInt(answer.value) === qData.correct){ score++; }
-      });
-      document.getElementById('result').innerText = `نتيجتك: ${score} من ${quizData.length}`;
-    }
-  </script>
-</body>
-</html>
+    document.getElementById('result').innerText = `نتيجتك: ${score} من ${quizData.length} (${Math.round(score/quizData.length*100)}%)`;
+  }
+</script>
