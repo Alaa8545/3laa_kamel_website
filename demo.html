@@ -127,9 +127,18 @@
         if(answer && parseInt(answer.value) === qData.correct){ score++; }
       });
 
+      const percent = Math.round(score / quizData.length * 100);
+
       // تحديد المستوى حسب CEFR
       let level = "";
-      const percent = score / quizData.length * 100;
       if(percent <= 33) level = "A1 (مبتدئ جدًا)";
       else if(percent <= 50) level = "A2 (مبتدئ)";
-      else if(percent <= 73
+      else if(percent <= 73) level = "B1 (متوسط)";
+      else if(percent <= 90) level = "B2 (متقدم متوسط)";
+      else level = "C1 (متقدم)";
+
+      document.getElementById('result').innerText = `نتيجتك: ${score} من ${quizData.length} (${percent}%) — المستوى الموصى به للدراسة: ${level}`;
+    }
+  </script>
+</body>
+</html>
