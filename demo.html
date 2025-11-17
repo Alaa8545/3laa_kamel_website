@@ -8,26 +8,25 @@
   
     <link rel="stylesheet" href="demo-style.css">
   
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="top-controls">
+  <div class="top-controls">
     <a href="index.html" class="btn back-btn">الرجوع للصفحة الرئيسية</a>
-    
-        <button class="btn start-quiz-btn" onclick="showQuiz()">ابدأ اختبار اللغة</button>
+    <button class="btn start-quiz-btn" onclick="showQuiz()">ابدأ اختبار اللغة</button>
   </div>
 
-    <div class="content-wrapper">
+  <div class="content-wrapper">
     <p>استمع إلى تلاوة سورة الفتح بصوت الشيخ محمود خليل الحصري:</p>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/YaFET8pue_0" title="تلاوة سورة الفتح" allowfullscreen></iframe>
     </div>
   </div>
 
-    <form class="quiz" id="quizForm">
+  <form class="quiz" id="quizForm">
     <h2>اختبار اللغة الإنجليزية (30 سؤال IELTS نموذجية)</h2>
-        <div id="questions"></div>
+    <div id="questions"></div>
     
     <button type="button" class="btn submit-btn" onclick="submitQuiz()">إرسال النتيجة</button>
     <div class="result" id="result"></div>
