@@ -1,0 +1,114 @@
+/*================================================================
+  1. إعادة الضبط (Reset) والخطوط
+  ================================================================*/
+* { 
+  box-sizing: border-box; 
+  transition: all 0.4s ease-in-out; 
+}
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100%; 
+  font-family: 'Cairo', Arial, sans-serif; 
+}
+
+/*================================================================
+  2. تنسيق الخلفية (Body Styling)
+  ================================================================*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/*================================================================
+  3. تنسيق الحاوية الرئيسية (Container)
+  ================================================================*/
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.75); 
+  padding: 40px; 
+  border-radius: 20px;
+  color: white;
+  max-width: 450px; 
+  width: 90%; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+}
+
+h1 {
+  color: #ffffff; 
+  margin-top: 0; 
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  border-bottom: 2px solid #1e90ff; 
+  padding-bottom: 10px;
+}
+
+/*================================================================
+  4. أيقونات التواصل الاجتماعي (Social Icons)
+  ================================================================*/
+.social-icons {
+  display: flex;
+  justify-content: space-around; 
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.social-icons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.social-icons a img {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px; 
+}
+.social-icons a:hover img {
+  transform: translateY(-5px) scale(1.1); 
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.8);
+}
+
+/*================================================================
+  5. رابط إضافي (القرآن الكريم)
+  ================================================================*/
+.additional-links {
+  margin-top: 30px;
+}
+.quran-link {
+  background-color: #1e90ff; 
+  padding: 12px 25px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%; 
+  max-width: 300px;
+}
+.quran-link:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.9);
+  background-color: #00bfff;
+}
+
+/*================================================================
+  6. التصميم المتجاوب (Media Queries)
+  ================================================================*/
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  h1 { font-size: 1.8rem; }
+  .social-icons { gap: 10px; }
+  .social-icons a img { width: 45px; height: 45px; }
+}
