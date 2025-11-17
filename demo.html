@@ -1,144 +1,38 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة علاء - اختبار اللغة</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    p { color: black; font-size: 1.2rem; }
-    .video-container {
-      margin: 20px 0;
-      width: 90%;
-      max-width: 700px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-    }
-    iframe { width: 100%; height: 400px; border: none; }
-    .btn {
-      margin: 10px 0;
-      padding: 10px 20px;
-      background-color: gold;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,215,0,0.7); }
-    .quiz {
-      display: none;
-      text-align: left;
-      background: rgba(255,255,255,0.95);
-      color: black;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 800px;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .question { margin-bottom: 15px; }
-    .result { margin-top: 20px; font-size: 1.3rem; font-weight: bold; color: darkgreen; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة التدريب التفاعلية</title>
+  <meta name="description" content="صفحة تدريب لغة إنجليزية تفاعلية مع فيديو واختبار تقييم مستوى CEFR.">
+  
+    <link rel="stylesheet" href="demo-style.css">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- زرار الرجوع للصفحة الرئيسية -->
-  <a href="index.html" class="btn">الرجوع للصفحة الرئيسية</a>
+    <div class="top-controls">
+    <a href="index.html" class="btn back-btn">الرجوع للصفحة الرئيسية</a>
+    
+        <button class="btn start-quiz-btn" onclick="showQuiz()">ابدأ اختبار اللغة</button>
+  </div>
 
-  <button class="btn" onclick="document.querySelector('.quiz').style.display='block'; this.style.display='none';">ابدأ اختبار اللغة</button>
+    <div class="content-wrapper">
+    <p>استمع إلى تلاوة سورة الفتح بصوت الشيخ محمود خليل الحصري:</p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/YaFET8pue_0" title="تلاوة سورة الفتح" allowfullscreen></iframe>
+    </div>
+  </div>
 
-  <p>استمع إلى تلاوة سورة الفتح بصوت الشيخ محمود خليل الحصري:</p>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/YaFET8pue_0" allowfullscreen></iframe>
-  </div>
+    <form class="quiz" id="quizForm">
+    <h2>اختبار اللغة الإنجليزية (30 سؤال IELTS نموذجية)</h2>
+        <div id="questions"></div>
+    
+    <button type="button" class="btn submit-btn" onclick="submitQuiz()">إرسال النتيجة</button>
+    <div class="result" id="result"></div>
+  </form>  
 
-  <form class="quiz" id="quizForm">
-    <h2>اختبار اللغة الإنجليزية (30 سؤال IELTS نموذجية)</h2>
-    <div id="questions"></div>
-    <button type="button" class="btn" onclick="submitQuiz()">إرسال</button>
-    <div class="result" id="result"></div>
-  </form>  
-
-  <script>
-    const quizData = [
-      {q:"Choose the correct sentence:", options:["She go to school every day.","She goes to school every day.","She going to school every day.","She gone to school every day."], correct:1},
-      {q:"The word 'benevolent' most nearly means:", options:["kind","evil","angry","sad"], correct:0},
-      {q:"Which sentence is in past tense?", options:["I eat breakfast now.","I ate breakfast yesterday.","I am eating breakfast.","I will eat breakfast."], correct:1},
-      {q:"Choose the correct preposition: He is interested ___ learning English.", options:["in","on","at","for"], correct:0},
-      {q:"Complete the sentence: If it rains tomorrow, we ___ at home.", options:["will stay","stay","stayed","staying"], correct:0},
-      {q:"Choose the synonym of 'difficult':", options:["easy","hard","light","soft"], correct:1},
-      {q:"Which is a formal way to greet someone in writing?", options:["Hey!","Dear Sir/Madam","Yo!","Hi there"], correct:1},
-      {q:"Read the text: 'John has three sisters. Two of them are doctors.' Question: How many sisters does John have?", options:["1","2","3","4"], correct:2},
-      {q:"The opposite of 'increase' is:", options:["grow","expand","decrease","rise"], correct:2},
-      {q:"Choose the correct sentence:", options:["He don't like coffee.","He doesn't like coffee.","He not likes coffee.","He no like coffee."], correct:1},
-      {q:"Choose the correct form: I ___ to the gym every week.", options:["go","goes","going","gone"], correct:0},
-      {q:"Synonym of 'important':", options:["trivial","essential","minor","unnecessary"], correct:1},
-      {q:"Past tense of 'run' is:", options:["runned","ran","run","running"], correct:1},
-      {q:"Choose the correct article: I saw ___ elephant.", options:["a","an","the","no article"], correct:1},
-      {q:"Opposite of 'cheap':", options:["expensive","affordable","low","moderate"], correct:0},
-      {q:"Which sentence is correct?", options:["She don't like apples.","She doesn't like apples.","She not like apples.","She no likes apples."], correct:1},
-      {q:"The word 'abundant' most nearly means:", options:["scarce","plentiful","few","little"], correct:1},
-      {q:"Choose the correct preposition: He is good ___ math.", options:["at","in","on","for"], correct:0},
-      {q:"Which is a verb?", options:["run","blue","happy","book"], correct:0},
-      {q:"Choose the correct pronoun: ___ am very tired.", options:["He","She","I","They"], correct:2},
-      {q:"Opposite of 'increase':", options:["decrease","grow","rise","expand"], correct:0},
-      {q:"Which sentence is past perfect?", options:["I had finished my homework before dinner.","I finished my homework.","I am finishing my homework.","I will finish my homework."], correct:0},
-      {q:"Choose the correct sentence:", options:["They has gone to school.","They have gone to school.","They gone to school.","They had gone school."], correct:1},
-      {q:"Synonym of 'happy':", options:["sad","joyful","angry","tired"], correct:1},
-      {q:"Complete: I will call you when I ___ home.", options:["arrive","arrives","arrived","arriving"], correct:0},
-      {q:"Which is correct?", options:["I didn't went to school.","I didn't go to school.","I didn't gone to school.","I didn't going to school."], correct:1},
-      {q:"Choose the opposite of 'early':", options:["late","soon","now","before"], correct:0},
-      {q:"The word 'rapid' means:", options:["slow","quick","fast","lazy"], correct:2},
-      {q:"Choose the correct sentence:", options:["He can sings well.","He can sing well.","He can sang well.","He can singing well."], correct:1},
-      {q:"Past tense of 'buy' is:", options:["buyed","bought","buy","buied"], correct:1}
-    ];
-
-    const questionsContainer = document.getElementById('questions');
-    quizData.forEach((qData, index) => {
-      const div = document.createElement('div');
-      div.className = 'question';
-      div.innerHTML = `<p>${index+1}. ${qData.q}</p>` +
-        qData.options.map((opt,i)=>`<label><input type='radio' name='q${index}' value='${i}'> ${opt}</label><br>`).join('');
-      questionsContainer.appendChild(div);
-    });
-
-    function submitQuiz(){
-      let score = 0;
-      quizData.forEach((qData,index)=>{
-        const answer = document.querySelector(`input[name='q${index}']:checked`);
-        if(answer && parseInt(answer.value) === qData.correct){ score++; }
-      });
-
-      const percent = Math.round(score / quizData.length * 100);
-
-      // تحديد المستوى حسب CEFR
-      let level = "";
-      if(percent <= 33) level = "A1 (مبتدئ جدًا)";
-      else if(percent <= 50) level = "A2 (مبتدئ)";
-      else if(percent <= 73) level = "B1 (متوسط)";
-      else if(percent <= 90) level = "B2 (متقدم متوسط)";
-      else level = "C1 (متقدم)";
-
-      document.getElementById('result').innerText = `نتيجتك: ${score} من ${quizData.length} (${percent}%) — المستوى الموصى به للدراسة: ${level}`;
-    }
-  </script>
+    <script src="demo-script.js"></script>
 </body>
 </html>
