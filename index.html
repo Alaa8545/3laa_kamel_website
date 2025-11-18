@@ -1,38 +1,100 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صفحة علاء - الروابط الشخصية والأعمال</title>
-  <meta name="description" content="صفحة علاء الشخصية وروابط التواصل الاجتماعي والأعمال.">
+  <title>Alaa Page</title>
   <meta name="google-site-verification" content="DvDSZwSFKkG0_r_Ez3ULjv5ckk242D2xMaHF9DNf8yQ" />
-  
-    <link rel="stylesheet" href="style.css">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      color: white;
+      max-width: 90%;
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3rem;
+      color: black;
+      margin-top: -20px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .social-icons a img {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(255,255,255,0.7);
+    }
+    .quran-link {
+      background-color: #1e90ff;
+      padding: 10px 15px;
+      border-radius: 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    }
+    .quran-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(0,191,255,0.7);
+      background-color: #00bfff;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; margin-top: -10px; }
+      .social-icons a img { width: 50px; height: 50px; }
+      .social-icons { gap: 20px; }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>مرحباً بك في صفحة علاء</h1>
-    
+    <h1>Welcome to Alaa page</h1>
     <div class="social-icons">
-      <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank" class="social-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
-        انستجرام
+      <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        Instagram
       </a>
-      <a href="https://www.facebook.com/alaakamil7737" target="_blank" class="social-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon">
-        فيسبوك
+      <a href="https://www.facebook.com/alaakamil7737" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        Facebook
       </a>
-      <a href="mailto:kamelalaa937@gmail.com" class="social-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Icon">
-        جيميل
+      <a href="mailto:kamelalaa937@gmail.com">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+        Gmail
       </a>
-    </div>
-    
-    <div class="additional-links">
       <a class="quran-link" href="demo.html">
-        🕋 اذهب إلى القرآن الكريم
+        اذهب إلى القرآن الكريم
       </a>
     </div>
   </div>
