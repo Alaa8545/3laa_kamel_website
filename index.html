@@ -17,7 +17,6 @@
       text-align: center;
       padding: 40px;
       max-width: 90%;
-      /* تم إزالة الخلفية والبلور */
     }
     h1 {
       font-size: 3rem;
@@ -45,7 +44,7 @@
       color: white;
       font-size: 0.9rem;
       font-weight: bold;
-      background: rgba(255,255,255,0.0); /* خلفية شفافة تماما */
+      background: rgba(255,255,255,0.0);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       animation: float 3s ease-in-out infinite, fadeInUp 0.8s ease forwards;
       opacity: 0;
@@ -79,24 +78,28 @@
     .links a {
       display: inline-block;
       padding: 14px 28px;
-      border-radius: 15px;
+      border-radius: 20px;
       text-decoration: none;
       color: white;
-      background-color: #1e90ff;
       font-weight: bold;
       font-size: 1rem;
-      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      background: rgba(30,144,255,0.25); /* خلفية شفافة أزرق فاتح */
+      backdrop-filter: blur(6px); /* تأثير الشفافية الجميل */
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .links a:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0,191,255,0.7);
-      background-color: #00bfff;
+      box-shadow: 0 0 20px rgba(0,191,255,0.7);
+      background: rgba(30,144,255,0.35);
     }
+
     @media (max-width: 600px) {
       h1 { font-size: 2rem; margin-bottom: 30px; }
       .social-icons a { width: 60px; height: 60px; }
       .social-icons a img { width: 30px; height: 30px; }
-      .links a { padding: 12px 20px; font-size: 0.9rem; }
+      .links a { padding: 12px 20px; font-size: 0.9rem; border-radius: 15px; }
     }
 
     @keyframes float {
