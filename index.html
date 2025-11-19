@@ -87,7 +87,7 @@
       backdrop-filter: blur(6px);
       border: 2px solid rgba(255,255,255,0.3);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      animation: gradientGlow 3s ease-in-out infinite alternate;
+      animation: gradientGlow 3s ease-in-out infinite alternate, buttonFloat 4s ease-in-out infinite;
     }
 
     @keyframes gradientGlow {
@@ -96,6 +96,14 @@
       50% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.6); }
       75% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 15px rgba(30,144,255,0.5); }
       100% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 10px rgba(30,144,255,0.3); }
+    }
+
+    @keyframes buttonFloat {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(1deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
+      75% { transform: translateY(-5px) rotate(1deg); }
+      100% { transform: translateY(0) rotate(0deg); }
     }
 
     @media (max-width: 600px) {
