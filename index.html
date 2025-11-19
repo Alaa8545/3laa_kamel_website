@@ -6,7 +6,7 @@
   <title>Alaa Page</title>
   <style>
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f0f0f0; height: 100%; display: flex; justify-content: center; align-items: center; }
+    html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; height: 100%; display: flex; justify-content: center; align-items: center; }
     body {
       background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
@@ -17,24 +17,27 @@
       text-align: center;
       padding: 40px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       max-width: 90%;
+      backdrop-filter: blur(8px);
     }
     h1 {
       font-size: 3rem;
       color: white;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      animation: fadeInDown 1s ease-out;
     }
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
     .social-icons a {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 70px;
@@ -44,33 +47,50 @@
       color: white;
       font-size: 0.9rem;
       font-weight: bold;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+      animation: float 3s ease-in-out infinite, fadeInUp 0.8s ease forwards;
+      opacity: 0;
     }
+    /* تأخير ظهور كل أيقونة */
+    .social-icons a:nth-child(1) { animation-delay: 0.2s; }
+    .social-icons a:nth-child(2) { animation-delay: 0.5s; }
+    .social-icons a:nth-child(3) { animation-delay: 0.8s; }
+
+    /* الأيقونات */
     .social-icons a img {
       width: 40px;
       height: 40px;
       margin-bottom: 5px;
     }
+
+    /* hover مع توهج ملون حسب الشبكة */
     .social-icons a:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 15px rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.3);
+      transform: scale(1.3) rotate(10deg);
+      box-shadow: 0 0 20px 5px rgba(255,255,255,0.7);
     }
+    .social-icons a[href*="instagram"]:hover { box-shadow: 0 0 20px 5px #E1306C; }
+    .social-icons a[href*="facebook"]:hover { box-shadow: 0 0 20px 5px #3b5998; }
+    .social-icons a[href*="mailto"]:hover { box-shadow: 0 0 20px 5px #D44638; }
+
     .links {
       display: flex;
       flex-direction: column;
       gap: 15px;
       margin-top: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 1.2s;
     }
     .links a {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 14px 28px;
       border-radius: 15px;
       text-decoration: none;
       color: white;
       background-color: #1e90ff;
       font-weight: bold;
+      font-size: 1rem;
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     }
     .links a:hover {
@@ -79,10 +99,24 @@
       background-color: #00bfff;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
+      h1 { font-size: 2rem; margin-bottom: 30px; }
       .social-icons a { width: 60px; height: 60px; }
       .social-icons a img { width: 30px; height: 30px; }
-      .links a { padding: 10px 20px; }
+      .links a { padding: 12px 20px; font-size: 0.9rem; }
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
