@@ -24,26 +24,20 @@
       margin-bottom: 50px;
       line-height: 1.2;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      background: linear-gradient(45deg, #00bfff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
     }
     h1 span {
       display: inline-block;
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInUp 0.5s forwards;
-      background: linear-gradient(45deg, #00bfff, #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
-    /* Animation delay لكل حرف السطر الأول */
-    h1 span:nth-child(-n+14) {
-      animation-delay: calc(0.05s * var(--i));
-    }
-
-    /* Animation delay لكلمة page (حروف 15-18) */
-    h1 span:nth-child(n+15) {
-      animation-delay: calc(0.05s * var(--i) + 0.8s);
-    }
+    /* Animation delay لكل حرف */
+    h1 span { animation-delay: calc(0.05s * var(--i)); }
 
     .social-icons {
       display: flex;
@@ -78,13 +72,20 @@
     .social-icons a[href*="facebook"]:hover { box-shadow: 0 0 20px 5px #3b5998; }
     .social-icons a[href*="mailto"]:hover { box-shadow: 0 0 20px 5px #D44638; }
 
+
+    /* ------------------------- */
+    /* تأثير الدخان للأزرار هنا */
+    /* ------------------------- */
+
     .links {
       display: flex;
       flex-direction: column;
       gap: 15px;
       margin-top: 20px;
     }
+
     .links a {
+      position: relative;
       display: inline-block;
       padding: 14px 28px;
       border-radius: 20px;
@@ -92,11 +93,33 @@
       color: white;
       font-weight: bold;
       font-size: 1rem;
-      background: rgba(30,144,255,0.25);
-      backdrop-filter: blur(6px);
+      background: rgba(30,144,255,0.22);
       border: 2px solid rgba(255,255,255,0.3);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      animation: gradientGlow 3s ease-in-out infinite alternate, buttonFloat 4s ease-in-out infinite;
+      backdrop-filter: blur(7px);
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    /* طبقة الدخان */
+    .links a::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 120%;
+      height: 120%;
+      background: url('https://i.ibb.co/3Fh6wY4/smoke.png');
+      background-size: cover;
+      opacity: 0.25;
+      animation: smokeMove 6s linear infinite;
+      filter: blur(8px);
+    }
+
+    /* حركة الدخان */
+    @keyframes smokeMove {
+      0% { transform: translateX(-20px) translateY(0); }
+      50% { transform: translateX(20px) translateY(-10px); }
+      100% { transform: translateX(-20px) translateY(0); }
     }
 
     @keyframes fadeInUp {
@@ -106,39 +129,27 @@
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    @keyframes gradientGlow {
-      0% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 10px rgba(30,144,255,0.3); }
-      25% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 15px rgba(30,144,255,0.5); }
-      50% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.6); }
-      75% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 15px rgba(30,144,255,0.5); }
-      100% { box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 10px rgba(30,144,255,0.3); }
-    }
-    @keyframes buttonFloat {
-      0% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-5px) rotate(1deg); }
-      50% { transform: translateY(-10px) rotate(-1deg); }
-      75% { transform: translateY(-5px) rotate(1deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; margin-bottom: 30px; }
+      h1 { font-size: 1.8rem; margin-bottom: 30px; white-space: normal; }
       .social-icons a { width: 60px; height: 60px; }
       .social-icons a img { width: 30px; height: 30px; }
       .links a { padding: 12px 20px; font-size: 0.9rem; border-radius: 15px; }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
+
     <h1>
       <span style="--i:1;">W</span><span style="--i:2;">e</span><span style="--i:3;">l</span><span style="--i:4;">c</span><span style="--i:5;">o</span><span style="--i:6;">m</span><span style="--i:7;">e</span>
       <span style="--i:8;"> </span>
       <span style="--i:9;">t</span><span style="--i:10;">o</span>
       <span style="--i:11;"> </span>
       <span style="--i:12;">A</span><span style="--i:13;">l</span><span style="--i:14;">a</span><span style="--i:15;">a</span>
-      <br>
-      <span style="--i:16;">p</span><span style="--i:17;">a</span><span style="--i:18;">g</span><span style="--i:19;">e</span>
+      <span style="--i:16;"> </span>
+      <span style="--i:17;">p</span><span style="--i:18;">a</span><span style="--i:19;">g</span><span style="--i:20;">e</span>
     </h1>
 
     <div class="social-icons">
@@ -160,6 +171,7 @@
       <a href="demo.html">اذهب إلى القرآن الكريم</a>
       <a href="demo.html">اذهب إلى امتحان اللغة</a>
     </div>
+
   </div>
 </body>
 </html>
