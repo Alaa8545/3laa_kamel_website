@@ -13,7 +13,7 @@
       background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
       background-size:cover;
       background-position:center;
-      background-attachment:fixed;
+      background-attachment:fixed; /* ثبات الخلفية */
       display:flex;
       justify-content:center;
       align-items:flex-start;
@@ -65,7 +65,7 @@
       justify-content:center;
       gap:26px;
       flex-wrap:wrap;
-      margin-top:50px; /* نزلتهم تحت */
+      margin-top:50px;
     }
     .social-icons a{
       width:64px;
@@ -76,8 +76,9 @@
       justify-content:center;
       text-decoration:none;
       color:#fff;
-      transition:transform .3s ease, box-shadow .3s ease;
+      transition:transform .3s ease, box-shadow .4s ease;
       overflow:hidden;
+      position:relative;
     }
     .social-icons a img{
       width:40px;
@@ -85,18 +86,19 @@
       display:block;
       transition: transform .3s ease;
     }
-    /* تأثير hover مع Glow لكل شبكة اجتماعية */
+
+    /* تأثير hover متدرج واحترافي */
+    .social-icons a:hover{
+      transform:translateY(-6px) scale(1.15);
+    }
     .social-icons a[href*="instagram"]:hover{
-      transform:translateY(-6px) scale(1.1);
-      box-shadow:0 0 20px 5px #E1306C;
+      box-shadow: 0 0 20px 5px #E1306C, 0 0 40px 10px #F77737, 0 0 60px 15px #FCB045;
     }
     .social-icons a[href*="facebook"]:hover{
-      transform:translateY(-6px) scale(1.1);
-      box-shadow:0 0 20px 5px #3b5998;
+      box-shadow: 0 0 20px 5px #3b5998, 0 0 40px 10px #8b9dc3, 0 0 60px 15px #dfe3ee;
     }
     .social-icons a[href*="mailto"]:hover{
-      transform:translateY(-6px) scale(1.1);
-      box-shadow:0 0 20px 5px #D44638;
+      box-shadow: 0 0 20px 5px #D44638, 0 0 40px 10px #EA4335, 0 0 60px 15px #FF6F61;
     }
 
     /* ===== الأزرار ===== */
@@ -104,7 +106,7 @@
       display:flex;
       gap:14px;
       justify-content:center;
-      margin-top:40px; /* نزلتهم تحت */
+      margin-top:50px;
       flex-wrap:wrap;
     }
     .links a{
