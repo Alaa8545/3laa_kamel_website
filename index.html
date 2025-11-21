@@ -1,201 +1,210 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8" />  
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-<title>Alaa Page</title>  
-<style>  
-*{box-sizing:border-box;margin:0;padding:0}  
-html,body{height:100%;}  
-body{  
-  font-family:Arial,sans-serif;  
-  min-height:100vh;  
-  display:flex;  
-  justify-content:center;  
-  align-items:flex-start;  
-  padding-top:50px;  
-  background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');  
-  background-size:cover;  
-  background-position:center;  
-  background-attachment:fixed;   
-  color:#fff;  
-}  .container{
-width:100%;
-max-width:980px;
-padding:28px;
-text-align:center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alaa Page</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;}
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:50px;
+  background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed; 
+  color:#fff;
+}
+
+.container{
+  width:100%;
+  max-width:980px;
+  padding:28px;
+  text-align:center;
 }
 
 /* ===== العنوان ===== */
 .title{
-font-size:40px;
-margin-bottom:60px;
-letter-spacing:0.6px;
-color:rgba(255,255,255,0.95);
-text-shadow:0 2px 8px rgba(0,0,0,0.6);
-overflow:hidden;
-display:inline-block;
+  font-size:40px;
+  margin-bottom:60px;
+  letter-spacing:0.6px;
+  color:rgba(255,255,255,0.95);
+  text-shadow:0 2px 8px rgba(0,0,0,0.6);
+  overflow:hidden;
+  display:inline-block;
 }
 
 .title span{
-display:inline-block;
-opacity:0;
-transform:translateY(-30px);
-animation:fadeSlideLetter 0.5s forwards;
+  display:inline-block;
+  opacity:0;
+  transform:translateY(-30px);
+  animation:fadeSlideLetter 0.5s forwards;
 }
 
 @keyframes fadeSlideLetter{
-to{opacity:1; transform:translateY(0);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-/* ===== أيقونات السوشيال ===== /
+/* ===== أيقونات السوشيال ===== */
 .social-icons{
-display:flex;
-justify-content:center;
-gap:26px;
-flex-wrap:wrap;
-margin-top:60px;
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  flex-wrap:wrap;
+  margin-top:60px;
 }
 .social-icons a{
-width:64px;
-height:64px;
-border-radius:50%;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-color:#fff;
-transition: transform .3s ease, box-shadow .4s ease;
-position:relative;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#fff;
+  transition: transform .3s ease, box-shadow .4s ease;
+  position:relative;
 }
 .social-icons a img{
-width:40px;
-height:40px;
-display:block;
-transition: transform .3s ease;
+  width:40px;
+  height:40px;
+  display:block;
+  transition: transform .3s ease;
 }
 .social-icons a:hover{
-transform:translateY(-6px) scale(1.15);
+  transform:translateY(-6px) scale(1.15);
 }
-.social-icons a[href="instagram"]:hover{
-box-shadow: 0 0 20px 5px #E1306C, 0 0 40px 10px #F77737, 0 0 60px 15px #FCB045;
+.social-icons a[href*="instagram"]:hover{
+  box-shadow: 0 0 20px 5px #E1306C, 0 0 40px 10px #F77737, 0 0 60px 15px #FCB045;
 }
 .social-icons a[href*="facebook"]:hover{
-box-shadow: 0 0 20px 5px #3b5998, 0 0 40px 10px #8b9dc3, 0 0 60px 15px #dfe3ee;
+  box-shadow: 0 0 20px 5px #3b5998, 0 0 40px 10px #8b9dc3, 0 0 60px 15px #dfe3ee;
 }
 .social-icons a[href*="mailto"]:hover{
-box-shadow: 0 0 20px 5px #D44638, 0 0 40px 10px #EA4335, 0 0 60px 15px #FF6F61;
+  box-shadow: 0 0 20px 5px #D44638, 0 0 40px 10px #EA4335, 0 0 60px 15px #FF6F61;
 }
 
 /* ===== الأزرار ===== */
 .links{
-display:flex;
-gap:14px;
-justify-content:center;
-margin-top:50px;
-flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin-top:50px;
+  flex-wrap:wrap;
 }
 .links a{
-display:inline-block;
-padding:14px 28px;
-border-radius:20px;
-text-decoration:none;
-color:#fff;
-font-weight:700;
-font-size:1rem;
-background:rgba(30,144,255,0.22);
-border:1px solid rgba(255,255,255,0.18);
-box-shadow:0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
-transition:transform .28s ease, box-shadow .28s ease, background .28s ease;
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:20px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  background:rgba(30,144,255,0.22);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+  transition:transform .28s ease, box-shadow .28s ease, background .28s ease;
 }
 .links a:hover{
-transform:translateY(-6px);
-background:rgba(30,144,255,0.35);
-box-shadow:0 14px 28px rgba(30,144,255,0.18), 0 6px 20px rgba(0,0,0,0.32);
+  transform:translateY(-6px);
+  background:rgba(30,144,255,0.35);
+  box-shadow:0 14px 28px rgba(30,144,255,0.18), 0 6px 20px rgba(0,0,0,0.32);
 }
 
 /* ===== شريط واتساب ثابت أسفل الصفحة ===== */
 .whatsapp-bar {
-position: fixed;
-bottom: 0;
-left: 0;
-width: 100%;
-background: #25D366;
-color: #fff;
-font-weight: bold;
-overflow: hidden;
-white-space: nowrap;
-box-shadow: 0 -3px 10px rgba(0,0,0,0.3);
-z-index: 9999;
-padding: 10px 0;
-text-align:center;
-font-size:1rem;
-text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 15px #fff;
+  position: fixed;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+  background: #25D366;
+  color: #fff;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  padding: 10px 0;
+  text-align:center;
+  font-size:1rem;
+  text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 15px #fff;
 }
 .whatsapp-bar span{
-display:inline-block;
-padding-left:100%;
-animation:scroll-left 15s linear infinite;
+  display:inline-block;
+  padding-left:100%;
+  animation:scroll-left 15s linear infinite;
 }
 @keyframes scroll-left{
-0%{transform:translateX(0);}
-100%{transform:translateX(-100%);}
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-100%);}
 }
 
 /* responsive */
 @media (max-width:720px){
-.title{font-size:28px; letter-spacing:-0.2px}
-.social-icons{margin-top:36px}
-.links{margin-top:32px}
-.links a{width:100%; max-width:320px}
+  .title{font-size:28px; letter-spacing:-0.2px}
+  .social-icons{margin-top:36px}
+  .links{margin-top:32px}
+  .links a{width:100%; max-width:320px}
 }
 @media (max-width:420px){
-.title{font-size:20px}
-.social-icons a{width:52px;height:52px}
-.social-icons a img{width:28px;height:28px}
-.links a{font-size:15px;padding:10px 18px;border-radius:14px}
+  .title{font-size:20px}
+  .social-icons a{width:52px;height:52px}
+  .social-icons a img{width:28px;height:28px}
+  .links a{font-size:15px;padding:10px 18px;border-radius:14px}
 }
 </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="title">
+    <span style="animation-delay:0.05s">W</span>
+    <span style="animation-delay:0.10s">e</span>
+    <span style="animation-delay:0.15s">l</span>
+    <span style="animation-delay:0.20s">c</span>
+    <span style="animation-delay:0.25s">o</span>
+    <span style="animation-delay:0.30s">m</span>
+    <span style="animation-delay:0.35s">e</span>
+    <span style="animation-delay:0.40s"> </span>
+    <span style="animation-delay:0.45s">t</span>
+    <span style="animation-delay:0.50s">o</span>
+    <span style="animation-delay:0.55s"> </span>
+    <span style="animation-delay:0.60s">A</span>
+    <span style="animation-delay:0.65s">l</span>
+    <span style="animation-delay:0.70s">a</span>
+    <span style="animation-delay:0.75s">a</span>
+    <br>
+    <span style="animation-delay:0.80s">p</span>
+    <span style="animation-delay:0.85s">a</span>
+    <span style="animation-delay:0.90s">g</span>
+    <span style="animation-delay:0.95s">e</span>
+  </h1>
 
-</head>  
-<body>  
-<div class="container">  
-  <h1 class="title">  
-    <span style="animation-delay:0.05s">W</span>  
-    <span style="animation-delay:0.10s">e</span>  
-    <span style="animation-delay:0.15s">l</span>  
-    <span style="animation-delay:0.20s">c</span>  
-    <span style="animation-delay:0.25s">o</span>  
-    <span style="animation-delay:0.30s">m</span>  
-    <span style="animation-delay:0.35s">e</span>  
-    <span style="animation-delay:0.40s"> </span>  
-    <span style="animation-delay:0.45s">t</span>  
-    <span style="animation-delay:0.50s">o</span>  
-    <span style="animation-delay:0.55s"> </span>  
-    <span style="animation-delay:0.60s">A</span>  
-    <span style="animation-delay:0.65s">l</span>  
-    <span style="animation-delay:0.70s">a</span>  
-    <span style="animation-delay:0.75s">a</span>  
-    <br>  
-    <span style="animation-delay:0.80s">p</span>  
-    <span style="animation-delay:0.85s">a</span>  
-    <span style="animation-delay:0.90s">g</span>  
-    <span style="animation-delay:0.95s">e</span>  
-  </h1>    <div class="social-icons">  
-    <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">  
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">  
-    </a>  
-    <a href="https://www.facebook.com/alaakamil7737" target="_blank">  
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">  
-    </a>  
-    <a href="mailto:kamelalaa937@gmail.com">  
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">  
-    </a>  
-  </div>    <div class="links">  
-    <a href="demo.html">اذهب إلى القرآن الكريم</a>  
-    <a href="demo.html">اذهب إلى امتحان اللغة</a>  
-  </div>  
-</div>  <!-- شريط واتساب ثابت أسفل الصفحة -->  <div class="whatsapp-bar">  
-  <span>📞 للتواصل واتساب: +201124166957</span>  
-</div>  
-</body>  
+  <div class="social-icons">
+    <a href="https://www.instagram.com/3laa_kamel___?igsh=MXRraWRucnJxNnB4eg==" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/alaakamil7737" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    </a>
+    <a href="mailto:kamelalaa937@gmail.com">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+    </a>
+  </div>
+
+  <div class="links">
+    <a href="demo.html">اذهب إلى القرآن الكريم</a>
+    <a href="demo.html">اذهب إلى امتحان اللغة</a>
+  </div>
+</div>
+
+<!-- شريط واتساب ثابت أسفل الصفحة -->
+<div class="whatsapp-bar">
+  <span>📞 للتواصل واتساب: +201124166957</span>
+</div>
+</body>
 </html>
