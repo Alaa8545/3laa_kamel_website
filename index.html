@@ -206,5 +206,44 @@ body{
 <div class="whatsapp-bar">
   <span>📞 +للتواصل واتساب: 📲 201124166957</span>
 </div>
+  <!-- شريط واتساب ثابت أسفل الصفحة -->
+<div class="whatsapp-bar">
+  <span>📞 للتواصل واتساب: +201124166957</span>
+</div>
+
+<style>
+/* تعديل الشريط فقط: أسود شفاف */
+.whatsapp-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6); /* أسود شفاف */
+  color: #00ff99;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0,255,153,0.4);
+  text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99;
+  z-index: 9999;
+}
+
+.whatsapp-bar span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+  background: linear-gradient(90deg, #00ff99, #66ffe0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
 </body>
 </html>
